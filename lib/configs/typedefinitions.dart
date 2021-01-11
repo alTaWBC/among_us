@@ -1,0 +1,1 @@
+typedef Toggle = void Function();

@@ -26,7 +26,9 @@ dependencies:
   cached_network_image: ^2.3.3
   flip_card: ^0.4.4
   flutter_riverpod: ^0.12.1
+  holding_gesture: ^0.0.3
   json_annotation: ^3.1.1
+  spritewidget: ^0.9.24
 
 dev_dependencies:
   flutter_test:

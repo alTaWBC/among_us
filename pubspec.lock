@@ -144,6 +144,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.0"
+  holding_gesture:
+    dependency: "direct main"
+    description:
+      name: holding_gesture
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   http:
     dependency: transitive
     description:
@@ -303,6 +310,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0-nullsafety.2"
+  spritewidget:
+    dependency: "direct main"
+    description:
+      name: spritewidget
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.24"
   sqflite:
     dependency: transitive
     description:

@@ -1,7 +1,8 @@
-import 'package:among_us/configs/colors.dart';
 import 'package:among_us/configs/images.dart';
-import 'package:flip_card/flip_card.dart';
+import 'package:among_us/routes.dart';
+import 'package:among_us/ui/screens/play/widgets/crewmate_card.dart';
 import 'package:flutter/material.dart';
+import 'package:holding_gesture/holding_gesture.dart';
 
 class Test extends StatefulWidget {
   const Test({Key key}) : super(key: key);
@@ -12,49 +13,54 @@ class Test extends StatefulWidget {
 
 class _TestState extends State<Test> {
   @override
-  Widget build(BuildContext context) => Row(
-        children: <Widget>[
-          Container(
-            height: 300,
-            width: 300,
-            child: FlipCard(
-                back: Stack(
-                  children: <Widget>[
-                    Positioned(
-                      bottom: 60,
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const Image(
-                      height: 100,
-                      width: 100,
-                      image: AppImages.limeDead,
-                      alignment: Alignment.topLeft,
-                    ),
-                  ],
-                ),
-                front: Stack(
-                  children: <Widget>[
-                    Positioned(
-                      bottom: 60,
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const Image(
-                      height: 100,
-                      width: 100,
-                      image: AppImages.lime,
-                      alignment: Alignment.topLeft,
-                    ),
-                  ],
-                )),
+  Widget build(BuildContext context) {
+    final Size totalSize = MediaQuery.of(context).size;
+    final Size childrenSize = Size(totalSize.width * 0.45, totalSize.height * 0.2);
+    return Scaffold(
+      appBar: AppBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AppImages.use,
+              height: totalSize.height * .05,
+              width: totalSize.height * .05,
+            ),
+            label: 'map',
           ),
+          BottomNavigationBarItem(
+            icon: HoldDetector(
+              onHold: () {},
+              // onTap: () => AppNavigator.push<void>(Routes.mapInfo),
+              // onCancel: () => Navigator.pop(context),
+              child: Image(
+                image: AppImages.use,
+                height: totalSize.height * .05,
+                width: totalSize.height * .05,
+              ),
+            ),
+            label: 'aaaa',
+          )
         ],
-      );
+      ),
+      body: SafeArea(
+        child: GridView.count(
+          childAspectRatio: 1.2,
+          crossAxisCount: 2,
+          children: <Widget>[
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+            CrewmateCard(childrenSize),
+          ],
+        ),
+      ),
+    );
+  }
 }

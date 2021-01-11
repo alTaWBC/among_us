@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:among_us/configs/colors.dart';
 import 'package:among_us/configs/constants.dart';
 import 'package:among_us/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +14,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context).copyWith(
+      appBarTheme: const AppBarTheme(
+        color: AppColors.red,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.red,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+      ),
+    );
 
     return MaterialApp(
       color: Colors.black,
       key: const Key('Material App'),
       title: 'Among Us Tracker',
-      theme: ThemeData(),
+      theme: theme,
       navigatorKey: AppNavigator.navigatorKey,
       onGenerateRoute: AppNavigator.onGenerateRoute,
       builder: (BuildContext context, Widget child) {

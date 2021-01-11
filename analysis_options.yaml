@@ -20,3 +20,4 @@ linter:
     unnecessary_final: false
     prefer_relative_imports: false
     omit_local_variable_types: false
+    diagnostic_describe_all_properties: false

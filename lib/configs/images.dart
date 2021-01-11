@@ -31,6 +31,9 @@ class AppImages {
   static const _Image purpleDead = _Image('purple_dead.png');
   static const _Image whiteDead = _Image('white_dead.png');
   static const _Image yellowDead = _Image('yellow_dead.png');
+  static const _Image kill = _Image('kill.png');
+  static const _Image use = _Image('use.png');
+  //TODO: get Map Image
 
   static Future<void> precachedAssets(BuildContext context) async {
     await precacheImage(green, context);
@@ -57,5 +60,6 @@ class AppImages {
     await precacheImage(purpleDead, context);
     await precacheImage(whiteDead, context);
     await precacheImage(yellowDead, context);
+    await precacheImage(kill, context);
   }
 }
